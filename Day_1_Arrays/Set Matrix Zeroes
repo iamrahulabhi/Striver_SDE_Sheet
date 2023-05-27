@@ -1,0 +1,39 @@
+https://leetcode.com/problems/set-matrix-zeroes/
+
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        vector<int> row;
+	vector<int> column;
+	for(int i=0;i<matrix.size();i++)
+	{
+		for(int j=0;j<matrix[i].size();j++)
+		{
+			if(matrix[i][j]==0)
+			{
+				row.push_back(i);
+				column.push_back(j);
+			}
+		}
+	}
+	int x=0;
+	while(x<row.size())
+	{
+		for(int i=0;i<matrix[0].size();i++)
+		{
+			matrix[row[x]][i]=0;
+		}
+		x++;
+	}
+	x=0;
+	while(x<column.size())
+	{
+		for(int i=0;i<matrix.size();i++)
+		{
+			matrix[i][column[x]]=0;
+		}
+		x++;
+	}
+    }
+};
